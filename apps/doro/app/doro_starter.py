@@ -1,5 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv("ΗΡ±Ήµµ·Ξ°ψ»η_±³Ελ»η°νΕλ°θ_20241231.csv", encoding="cp949")
+df = pd.read_csv("ν•κµ­λ„λ΅κ³µμ‚¬_κµν†µμ‚¬κ³ ν†µκ³„_20241231.csv", encoding="cp949")
 
 print(df.head(10))
