@@ -16,17 +16,14 @@ class Walter:
     #타이타닉 전체 승객 수
     def titanic_count(self):
         df = pd.read_csv(_CSV_PATH)
-        total_passengers = int(df.shape[0])
-        return pd.DataFrame([{"total_passengers": total_passengers}])
+        return int(df.shape[0])
 
     #타이타닉 생존자 수
     def titanic_survived(self):
         df = pd.read_csv(_CSV_PATH)
-        survived_passengers = int(df["Survived"].fillna(0).astype(int).sum())
-        return pd.DataFrame([{"survived_passengers": survived_passengers}])
+        return int(df["Survived"].fillna(0).astype(int).sum())
 
     #타이타닉 사망자 수
     def titanic_dead(self):
         df = pd.read_csv(_CSV_PATH)
-        dead_passengers = int((df["Survived"].fillna(0).astype(int) == 0).sum())
-        return pd.DataFrame([{"dead_passengers": dead_passengers}])
+        return int((df["Survived"].fillna(0).astype(int) == 0).sum())

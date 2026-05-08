@@ -16,17 +16,17 @@ class James:
         return w.get_data_titanic()
     
     #타이타닉 전체 승객 수
-    def titanic_count(self):
+    def titanic_count(self) -> int:
         w = Walter()
         return w.titanic_count()
     
     #타이타닉 생존자 수
-    def titanic_survived(self):
+    def titanic_survived(self) -> int:
         w = Walter()
         return w.titanic_survived()
     
     #타이타닉 사망자 수
-    def titanic_dead(self):
+    def titanic_dead(self) -> int:
         w = Walter()
         return w.titanic_dead()
 
