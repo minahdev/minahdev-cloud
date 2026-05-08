@@ -1,6 +1,4 @@
-import pandas as pd
-from fastapi import FastAPI, Query
-from pathlib import Path
+from fastapi import FastAPI
 
 from doro.app.doro_reader import Reader
 

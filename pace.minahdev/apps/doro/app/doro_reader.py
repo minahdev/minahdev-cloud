@@ -14,8 +14,10 @@ class Reader:
         return df.iloc[[1]].astype(object).where(df.iloc[[1]].notna(), None)
 
 
-    def head_records(self, n: int = 10) -> list[dict]:
-        df = self.get_data_doro().head(n)
-        # pandas의 NaN은 JSON 직렬화에서 에러가 나므로 None으로 변환
-        df = df.astype(object).where(pd.notna(df),None)
-        return df.to_dict(orient="records")
+    # def head_records(self, n: int = 10) -> list[dict]:
+    #    df = self.get_data_doro().head(n)
+    #    pandas의 NaN은 JSON 직렬화에서 에러가 나므로 None으로 변환
+    #    df = df.astype(object).where(pd.notna(df),None)
+    #    return df.to_dict(orient="records")
+    
+
