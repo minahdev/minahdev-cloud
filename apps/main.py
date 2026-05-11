@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
 
-from titanic.app.james import James
+from titanic.app.james_controller import JamesController
 
 from doro.app.doro_diretor import Diretor
 
@@ -14,7 +14,7 @@ def read_root():
 #타이타닉 데이터
 @app.get("/titanic/data")
 def read_titanic_data():
-    james = James()
+    james = JamesController()
     df = james.get_data_titanic()
     return df.to_dict(orient="records")
 
@@ -22,7 +22,7 @@ def read_titanic_data():
 #타이타닉 전체 승객 수
 @app.get("/titanic/count")
 def read_titanic_count():
-    james = James()
+    james = JamesController()
     total_passengers = james.titanic_count()
     return {"total_passengers": total_passengers}
 
@@ -30,7 +30,7 @@ def read_titanic_count():
 #타이타닉 생존자 수
 @app.get("/titanic/count/survived")
 def read_titanic_survived():
-    james = James()
+    james = JamesController()
     survived_passengers = james.titanic_survived()
     return {"survived_passengers": survived_passengers}
 
@@ -38,18 +38,20 @@ def read_titanic_survived():
 #타이타닉 사망자 수
 @app.get("/titanic/count/dead")
 def read_titanic_dead():
-    james = James()
+    james = JamesController()
     dead_passengers = james.titanic_dead()
     return {"dead_passengers": dead_passengers}
 
 
 
-#타이타닉 결정트리 모델 파일 존재 여부
-@app.get("/titanic/tree")
+#타이타닉 결정트리 모델명, 정확도 표시
+@app.get("/titanic/model")
 def read_titanic_tree():
-    james = James()
-    has_model = james.has_decision_tree_model()
-    return {"has_model": has_model}
+    james = JamesController()
+    model_name = james.current_model_name()
+    accuracy = james.current_model_accuracy()
+    return {"model_name": model_name, "accuracy": accuracy}
+
 
 
 
